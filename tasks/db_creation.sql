@@ -47,8 +47,45 @@ Kritériumok az adatbázissal kapcsolatban:
 */
 
 
--- ---------------------------------------------------------------------------------------------------------------------
+CREATE TABLE `encimodulzaro`.`enci`
+ (`id` INT NOT NULL AUTO_INCREMENT , 
+`name` VARCHAR(100) NOT NULL , 
+`email` VARCHAR(100) NOT NULL ,
+ `password` VARCHAR(100) NOT NULL ,
+ `is_active` BOOLEAN NOT NULL ,
+ `registration` DATE NOT NULL ,
+ PRIMARY KEY (`id`), 
+UNIQUE (`email`)) ENGINE = InnoDB;
 
+
+Második:
+
+CREATE TABLE `encimodulzaro`.`masodik` (`sender` INT NOT NULL , `reciever` INT NOT NULL , `message` TEXT NOT NULL , `message_date` DATETIME NOT NULL , `messageID` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`messageID`), INDEX (`reciever`), INDEX (`sender`)) ENGINE = InnoDB;
+
+
+INSERT INTO `enci`(`name`, `email`, `password`, `is_active`, `registration`) VALUES ('benabela','benabela@belus.com','jelszo','1','2022.03.03.')
+
+INSERT INTO `masodik`(`sender`, `reciever`, `message`) VALUES ('1','2','Szia Lajos!Kutyáidat sétáltatod bazzeg?')
+-- ---------------------------------------------------------------------------------------------------------------------
+CREATE TABLE encimodulzaro.enci
+ (id INT NOT NULL AUTO_INCREMENT ,
+name VARCHAR(100) NOT NULL ,
+email VARCHAR(100) NOT NULL ,
+ password VARCHAR(100) NOT NULL ,
+ is_active BOOLEAN NOT NULL ,
+ registration DATE NOT NULL ,
+ PRIMARY KEY (id),
+UNIQUE (email)) ENGINE = InnoDB;
+
+
+Második:
+
+CREATE TABLE encimodulzaro.masodik (sender INT NOT NULL , reciever INT NOT NULL , message TEXT NOT NULL , message_date DATETIME NOT NULL , messageID INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (messageID), INDEX (reciever), INDEX (sender)) ENGINE = InnoDB;
+
+
+INSERT INTO enci(name, email, password, is_active, registration) VALUES ('benabela','benabela@belus.com','jelszo','1','2022.03.03.')
+
+INSERT INTO masodik(sender, reciever, message) VALUES ('1','2','Szia Lajos!Kutyáidat sétáltatod bazzeg?')
 /*
 Bónusz feladat (5 pont)
 
